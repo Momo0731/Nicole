@@ -1,0 +1,132 @@
+<!Doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>o
+</head>
+<body>
+<canvas width="800" height="400" style="border: 1px solid #000;"></canvas>
+
+<script src="Land.js"></script>
+<script>
+
+	/*
+	 Vt当前速度
+	 Vo 初始速度
+	 a:加速度
+	 t:时间差   计时的结束时间-计时的起始时间
+
+	 Vt=V0+at
+
+	 s=V0*t+1/2a*t*t //t时间段内移动距离
+	 */
+	var cs=document.querySelector('canvas');
+	var ctx=cs.getContext('2d');
+
+	var img =new Image()
+
+
+	img.onload =function() {
+		var land1 = new Land(
+				{
+					ctx: ctx,
+					img: img,
+					index:0
+				}
+		)
+		var land2 = new Land(
+				{
+					ctx: ctx,
+					img: img,
+					index:1
+				}
+		)
+		var land3= new Land(
+				{
+					ctx: ctx,
+					img: img,
+					index:2
+				}
+		)
+		var land4= new Land(
+				{
+					ctx: ctx,
+					img: img,
+					index:3
+				}
+		)
+
+		setInterval(function () {
+
+			ctx.clearRect(0,0,cs.width,cs.height)
+			land1.render();
+			land2.render();
+			land3.render();
+			land4.render();
+		}, 50)
+	}
+
+	img.src ="imgs/land.png";
+//	var h=45;
+//	var w=52;
+//	var x=100;
+//	var y=100;
+//
+//	var speed=0;//当前速度
+//	var startTime=new Date();//起始时间 //时间戳
+//	var endTime=0;//结束时间
+//	var Dvalue=0;//时间差
+//	var a=0.0005; //加速
+//
+//	var maxSpeed=0.5;//最大速度
+//
+//	var angles=0;//旋转的角度
+//	var maxAngles=45;//最大角度
+//
+//
+//
+//	var bird=new Image();
+//
+//	bird.onload=function(){
+//		var  i=0;
+//
+//		//求时差
+//		var timer =setInterval(function(){
+//			var endTime = new Date();
+//			Dvalue = endTime-startTime;
+//      startTime=endTime;
+//			//求初始速度speed
+//			speed+=a*Dvalue;
+//			speed = speed>maxSpeed?maxSpeed:speed;
+//			//求位移y的值
+//			y += speed*Dvalue+ a*Dvalue*Dvalue/2;
+//
+//			//算出选转的角度
+//			angles = speed/maxSpeed*maxAngles;
+//
+//		  	x+=0.05*Dvalue;
+//			//清空画布
+//			ctx.clearRect(0,0,cs.width,cs.height);
+//			//保存画布初始状态
+//			ctx.save();
+//			ctx.translate(x,y);
+//			ctx.rotate(angles*Math.PI/180);
+//			ctx.drawImage(bird,i*w,0,w,h,-w/2,-h/2,w,h);
+//			//恢复之前保存的画布以便下次移动和旋转
+//			ctx.restore();
+//
+//			i++
+//			i=i%3;
+//		},50)
+//
+//	}
+//
+//	cs.onclick=function(){
+//		speed=-0.3;
+//	}
+
+
+//	bird.src="imgs/birds.png";
+</script>
+</body>
+</html>

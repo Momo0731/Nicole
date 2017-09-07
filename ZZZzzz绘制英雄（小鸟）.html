@@ -1,0 +1,41 @@
+<!Doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<canvas width="800" height="500" style="border: 1px solid #000;"></canvas>
+
+<script src="Game.js"></script>
+<script src="Bird.js"></script>
+<script src="Sky.js"></script>
+<script src="Land.js"></script>
+<script src="Pipe.js"></script>
+
+<script>
+
+	/*
+	 Vt当前速度
+	 Vo 初始速度
+	 a:加速度
+	 t:时间差   计时的结束时间-计时的起始时间
+
+	 Vt=V0+at
+
+	 s=V0*t+1/2a*t*t //t时间段内移动距离
+	 */
+	var cs=document.querySelector('canvas');
+	var ctx=cs.getContext('2d');
+
+	var game = new Game({
+		ctx:ctx,
+	})
+
+	console.log(game);
+	console.log(game.rolesArr);
+
+	//	bird.src="imgs/birds.png";
+</script>
+</body>
+</html>
